@@ -15,6 +15,7 @@
         'security/ir.model.access.csv',
         'data/maintenance_data.xml',
         'data/mail_data.xml',
+        'views/jobOrderAssignment.xml',
         'views/maintenance_views.xml',
         'views/maintenance_templates.xml',
         'views/mail_activity_views.xml',

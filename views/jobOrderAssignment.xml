@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record model="ir.ui.view" id="hr_job_view">
+      <field name="name">view.name</field>
+      <field name="model">maintenance.job.order.assignment</field>
+      <field name="priority" eval="16"/>
+      <field name="arch" type="xml">
+        <form string="Job Order/Assignment">
+            <header>
+              <field name="x_studio_stage_id" widget="statusbar" clickable="1"/>
+            </header>
+            <sheet string="Job Order/Assignment">
+              <!-- <field name="x_studio_kanban_state" widget="state_selection"/> -->
+              <widget name="web_ribbon" text="Archived" bg_color="bg-danger" attrs="{'invisible': [('x_active', '=', True)]}"/>
+              <field name="x_active" invisible="1"/>
+              <field class="oe_avatar" widget="image" name="x_studio_image"/>
+              <div class="oe_title">
+                  <h1>
+                      <field name="x_name" required="1" string="Department/Ward/Area" placeholder="Department/Ward/Area"/>
+                  </h1>
+              </div>
+
+              <group name="studio_group_ea0905">
+                <group name="studio_group_ea0905_left">
+                  <!-- <field name="x_studio_partner_id"/> -->
+                  <field name="x_studio_many2one_field_GSELf" domain="[]" string="Description of fault"/>
+                  <!-- <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}"/>
+                  <field name="x_studio_partner_email" widget="email"/> -->
+                  <!-- <field name="x_studio_date"/> -->
+                  <field name="x_studio_many2one_field_BZWhr" domain="[]" groups="maintenance.group_equipment_manager" string="Equipment"/>
+                  <label string="Dates" for="x_studio_date_start"/>
+                  <div class="o_row">
+                    <field name="x_studio_date_start" string="Estimated Start &amp; End Dates" widget="daterange" options="{&quot;related_end_date&quot;: &quot;x_studio_date_stop&quot;}"/>
+                    <span> to </span>
+                    <field name="x_studio_date_stop" widget="daterange" options="{&quot;related_start_date&quot;: &quot;x_studio_date_start&quot;}"/>
+                  </div>
+                </group>
+                <group name="studio_group_ea0905_right">
+                  <field name="x_studio_currency_id" invisible="1"/>
+                  <field name="x_studio_value" string="Estimated Repair Cost" widget="monetary" options="{'currency_field': 'x_studio_currency_id'}"/>
+                  <!-- <field name="x_studio_tag_ids" widget="many2many_tags" options="{'color_field': 'x_color'}"/> -->
+                  <field name="x_studio_company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                  <field name="activity_user_id" string="Responsible Staff"/>
+                </group>
+              </group>
+              <group>
+
+                <notebook name="studio_notebook_bjQKZ">
+                  <page string="Work to be done" name="studio_page_bjQKZ">
+                    <group name="studio_group_bjQKZ">
+                      <group name="studio_group_bjQKZ_left">
+                        <field name="x_studio_1" string="Work 1"/>
+                        <field name="x_studio_2" string="Work 2"/>
+                        <field name="x_studio_3_1" string="Work 3"/>
+                      </group>
+                      <group name="studio_group_bjQKZ_right">
+                        <field name="x_studio_3" string="Work 4"/>
+                        <field name="x_studio_4" string="Work 5"/>
+                        <field name="x_studio_6" string="Work 6"/>
+                      </group>
+                    </group>
+                  </page>
+
+                  <page string="Tools Needed" name="studio_page_zXHZP">
+                    <group name="studio_group_0blIS">
+                      <group name="studio_group_0blIS_left">
+                        <field name="x_studio_1_1" string="Tool 1"/>
+                        <field name="x_studio_2_1" string="Tool 2"/>
+                        <field name="x_studio_3_2" string="Tool 3"/>
+                      </group>
+                      <group name="studio_group_0blIS_right">
+                        <field name="x_studio_4_1" string="Tool 4"/>
+                        <field name="x_studio_5" string="Tool 5"/>
+                        <field name="x_studio_6_1" string="Tool 6"/>
+                      </group>
+                    </group>
+                  </page>
+                  <page string="Supplies and Consumables" name="studio_page_0pVwA">
+                    <group name="studio_group_0pVwA">
+                      <field name="x_studio_1_2" string="Supp 1."/>
+                      <field name="x_studio_2_2" string="Supp 2."/>
+                      <field name="x_studio_3_3" string="Supp 3."/>
+                      <field name="x_studio_4_2" string="Supp 4."/>
+                      <field name="x_studio_5_1" string="Supp 5."/>
+                      <field name="x_studio_6_2" string="Supp 6."/>
+                    </group>
+                  </page>
+                  <page string="Parts" name="studio_page_yT2jc">
+                    <group name="studio_group_yT2jc">
+                      <field name="x_studio_1_3" string="Part 1."/>
+                      <field name="x_studio_2_3" string="Part 2."/>
+                      <field name="x_studio_3_4" string="Part 3."/>
+                      <field name="x_studio_4_3" string="Part 4."/>
+                      <field name="x_studio_part_5" string="Part 5."/>
+                      <field name="x_studio_part_6" string="Part 6."/>
+                    </group>
+                  </page>
+                </notebook>
+              </group>
+            <field name="x_studio_notes" placeholder="Type down your notes here..." nolabel="1"/>
+            </sheet>
+            <div class="oe_chatter" name="oe_chatter">
+
+            </div>
+          </form>
+      </field>
+  </record>
+
+  <record id="hr_job_action" model="ir.actions.act_window">
+      <field name="name">Job Order/AssignmentTttt</field>
+      <field name="res_model">maintenance.job.order.assignment</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_id" ref="hr_job_view"/>
+      <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+              Add a new Job order assignment
+          </p><p>
+              Track orders/assignments and link it to an employee or department.
+              You will be able to manage allocations, issues and maintenance of your equipment.
+          </p>
+      </field>
+  </record>
+</odoo>

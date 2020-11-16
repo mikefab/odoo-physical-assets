@@ -3,31 +3,6 @@
     <!-- equiment.request : views -->
 
 
-    <record model="ir.ui.view" id="hr_job_view">
-        <field name="name">view.name</field>
-        <field name="model">maintenance.job.order.assignment</field>
-        <field name="priority" eval="16"/>
-        <field name="arch" type="xml">
-          <form string="Idea form">
-              <field name="x_active" invisible="1"/>
-              Name <field name="x_name" required="1" placeholder="Name..."/>
-              Image <field class="oe_avatar" widget="image" name="x_studio_image"/>
-              phone <field name="x_studio_partner_phone" widget="phone" options="{'enable_sms': True}"/>
-              email <field name="x_studio_partner_email" widget="email"/>
-              date <field name="x_studio_date"/>
-              date start <field name="x_studio_date_start" string="Estimated Start &amp; End" widget="daterange" options="{&quot;related_end_date&quot;: &quot;x_studio_date_stop&quot;}"/>
-              date stop <field name="x_studio_date_stop" widget="daterange" options="{&quot;related_start_date&quot;: &quot;x_studio_date_start&quot;}"/>
-
-              Company ID
-              <group>
-              <field name="company_id" options="{'no_create': True}" string="Health Facility" placeholder="Your health faciliity"/>
-            </group>
-              value <field name="x_studio_value" widget="monetary" options="{'currency_field': 'x_studio_currency_id'}"/>
-
-
-          </form>
-        </field>
-    </record>
     <record id="hr_equipment_request_view_search" model="ir.ui.view">
         <field name="name">equipment.request.search</field>
         <field name="model">maintenance.request</field>
@@ -588,24 +563,6 @@
             </p>
         </field>
     </record>
-
-
-    <record id="hr_job_action" model="ir.actions.act_window">
-        <field name="name">Job Order/Assignment</field>
-        <field name="res_model">maintenance.job.order.assignment</field>
-        <field name="view_mode">kanban,tree,form</field>
-        <field name="view_id" ref="hr_job_view"/>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Add a new Job order assignment
-            </p><p>
-                Track orders/assignments and link it to an employee or department.
-                You will be able to manage allocations, issues and maintenance of your equipment.
-            </p>
-        </field>
-    </record>
-
-
 
     <!-- equiment : actions -->
     <record id="hr_equipment_action_from_category_form" model="ir.actions.act_window">

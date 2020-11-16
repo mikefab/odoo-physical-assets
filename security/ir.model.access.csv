@@ -1,5 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_maintenance_job_order_assignment,maintenance.job.order.assignment,model_maintenance_job_order_assignment,,1,1,1,1
+access_maintenance_job_order_assignment_stage,Job Order/Assignment Stages group_user,model_maintenance_job_order_assignment_stage,base.group_user,1,1,0,1
+access_maintenance_job_order_assignment,Job Order/Assignment Stages group_system,model_maintenance_job_order_assignment,base.group_system,1,1,1,1
+access_maintenance_job_order,Job Order group_system,model_maintenance_job_order,base.group_system,,,,
+access_maintenance_job_order_1,Job Order group_user,model_maintenance_job_order,base.group_user,1,1,0,1
 access_equipment_user,equipment.user,model_maintenance_equipment,base.group_user,1,0,0,0
 access_equipment_admin_user,equipment.admin.user,model_maintenance_equipment,group_equipment_manager,1,1,1,1
 access_maintenance_system_user,equipment.request system user,model_maintenance_request,base.group_user,1,1,1,1
